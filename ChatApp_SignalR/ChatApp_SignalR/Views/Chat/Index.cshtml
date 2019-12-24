@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+
+
+    <div class="container">
+        <p class="text-center">Conversation</p>
+        <div class="row">
+            <div class="col-md-12">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+
+
+        <footer class="border-top footer text-muted">
+            <div class="row">
+                <div class="col-md-8">
+                    <strong>@User.Identity.Name.Split("@")[0]</strong>
+                </div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label for="isSendOnEnter">
+                            <input id="isSendOnEnter" type="checkbox" checked>
+                            Send on Enter
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="userInput" value="@User.Identity.Name.Split("@")[0]" hidden />
+                        <textarea class="form-control" type="text" id="messageInput" placeholder="Type your message here.."></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="button" id="sendButton" value="Send Message" />
+                </div>
+            </div>
+        </footer>
+    </div>
