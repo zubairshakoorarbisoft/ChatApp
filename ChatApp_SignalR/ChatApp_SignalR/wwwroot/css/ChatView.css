@@ -265,3 +265,14 @@
     border-color:white;
     color: white;
 }
+
+.unreadMessageCount {
+    /*margin-top: -13px;*/
+    float: right;
+    background: blue;
+    width: 12%;
+    text-decoration-style:solid;
+    border-radius: 6px;
+    text-align: center;
+    height: 20px;
+}

@@ -35,7 +35,19 @@ connection.on("ReceiveMessage", function (messageViewModel) {
 });
 
 
+connection.on("GetAllConnections", function (connections) {
+    for (var j = 0; j < chatViewM.Availableusers().length; j++) {
+        chatViewM.Availableusers()[j].isOnline(false);
+    }
+    $.each(connections, function (key, value) {
+        for (var j = 0; j < chatViewM.Availableusers().length; j++) {
+            if (key == chatViewM.Availableusers()[j].id()) {
+                chatViewM.Availableusers()[j].isOnline(true);
+            }
 
+        }
+    });
+});
 
 
 $("#messageInput").on('keypress', function (e) {

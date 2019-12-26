@@ -95,7 +95,8 @@ namespace ChatApp_SignalR.Controllers
                 ReceiverName = s.ReceiverUser.UserName,
                 DateCreateed = s.DateCreateed,
                 //messageFrom = LoggedInUserId == s.SenderId? "sender": "receiver"
-                messageFrom = HttpContext.User.Identity.Name
+                //messageFrom = HttpContext.User.Identity.Name
+                messageFrom = _userManager.FindByIdAsync(s.SenderId).Result.UserName
             })
             .Where(s => s.SenderId == LoggedInUserId && s.ReceiverId == Id || s.ReceiverId == LoggedInUserId && s.SenderId == Id)
             .OrderBy(s => s.DateCreateed)
